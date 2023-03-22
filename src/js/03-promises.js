@@ -21,10 +21,12 @@ function onSubmit (event) {
   event.preventDefault();
 
   const delay = Number(form.elements.delay.value);
-  const step = Number(form.elements.step.value);  
-  for (let i = 0; i < amount; i += 1) {
-    let position = i + 1;
-    let actualDelay = delay + step * i;
+  const step = Number(form.elements.step.value);
+  const amount = Number(form.elements.amount.value);
+
+  for (let i = 0; i<amount; i += 1) {
+  let position = i + 1;
+  let actualDelay = delay + step * i;
 
   createPromise(position, actualDelay)
   .then(({ position, delay }) => {
